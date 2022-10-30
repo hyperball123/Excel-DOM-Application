@@ -1,0 +1,180 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+}
+
+/***************menu bar********************/
+.menu_bar {
+    height: 3rem;
+    /* background-color: lightblue; */
+    border-bottom: 1px solid gray;
+    align-items: center;
+    display: flex;
+}
+
+.menu_bar>* {
+    height: 75%;
+}
+
+.select_f_family {
+    width: 20%;
+    border: none;
+    outline: none;
+    border-right: 1px solid gray;
+    margin-right: 0.5rem;
+    text-align: center;
+}
+
+.select_f_size {
+    width: 10%;
+    border: none;
+    outline: none;
+    border-right: 1px solid gray;
+}
+
+.bui_container {
+    width: 20%;
+    border: none;
+    border-right: 1px solid gray;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+i {
+    color: rgb(161, 153, 153);
+}
+
+.selected {
+    color: black;
+    filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+}
+
+.alignment_container {
+    width: 20%;
+    border: none;
+    border-right: 1px solid gray;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/******************* formula container *******************/
+.formula_container {
+    height: 2rem;
+    /* background-color: orange; */
+    display: flex;
+    align-items: center;
+}
+
+.formula_img {
+    height: 1.2rem;
+}
+
+.address_bar {
+    width: 20%;
+    text-align: center;
+    border: none;
+    outline: none;
+    border-right: 1px solid gray;
+    margin-right: 1.5rem;
+}
+
+.formula_bar {
+    margin-left: 0.5rem;
+    width: 70%;
+    border: none;
+    border-left: 1px solid gray;
+    outline: none;
+
+}
+
+/* *******grid starts******************* */
+.grid_container {
+    border: 1px solid gray;
+    height: calc(100vh - 7rem);
+    /* vh and rem get converted into px and then it will be calculated */
+    /* background-color: orange; */
+    overflow: scroll;
+    position: relative;
+}
+
+.cell {
+    border: 0.5px solid gray;
+
+    height: 1.5rem;
+    width: 5rem;
+    /* background-color: lightgray */
+}
+
+.tl_cell {
+    height: 1.45rem;
+    width: 2rem;
+    border-right: 5px solid lightgray;
+    border-bottom: 5px solid lightgray;
+}
+
+.left_col>* {
+    width: 2.02rem;
+    text-align: center;
+    padding-top: 0.2rem;
+}
+
+.top_row {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 2rem;
+}
+
+.left_col {
+    position: absolute;
+}
+
+.grid {
+    position: absolute;
+    left: 2rem;
+}
+
+.top_row>.cell,
+.row>.cell {
+    padding-top: 0.2rem;
+    min-width: 5rem;
+    text-align: center;
+}
+
+.row {
+    display: flex;
+}
+
+.row>.cell {
+    font-family: "Courier New";
+}
+
+/* ***************sheets container********** */
+.sheets_container {
+    border: 1px solid gray;
+    height: 2rem;
+    /* background-color: lightcoral; */
+    display: flex;
+}
+
+.add_Sheet {
+    height: 2rem;
+    width: 2rem;
+    border: 1px solid gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sheet {
+    height: 2rem;
+    width: 5rem;
+    border: 1px solid gray;
+    text-align: center;
+    padding-top: 0.2rem;
+}
