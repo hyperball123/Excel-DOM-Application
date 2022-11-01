@@ -156,7 +156,7 @@ i {
 
 /* ***************sheets container********** */
 .sheets_container {
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
     height: 2rem;
     /* background-color: lightcoral; */
     display: flex;
@@ -172,9 +172,17 @@ i {
 }
 
 .sheet {
+    background-color: lightgray;
     height: 2rem;
     width: 5rem;
     border: 1px solid gray;
     text-align: center;
     padding-top: 0.2rem;
+}
+
+.current_sheet{
+    background-color: white;
+}
+.sheet_sub{
+    display: flex;
 }

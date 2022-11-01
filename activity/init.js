@@ -38,8 +38,14 @@ function initUI() {
         grid.appendChild(row);
     }
 }
-let db = []
-function initDB() {
+initUI();
+
+// *************sheet wala logic********************
+let sheets = [];
+// 2d array create kara and push kara dia apne sheets ke array
+
+function initDbtoSheet() {
+    let newDb = [];
     for (let i = 0; i < 100; i++) {
         let rowArr = [];
         for (let j = 0; j < 26; j++) {
@@ -56,10 +62,72 @@ function initDB() {
             }
             rowArr.push(cellObj);
         }
-        db.push(rowArr);
+        newDb.push(rowArr);
+    }
+    sheets.push(newDb);
+}
+initDbtoSheet();
 
+let db = sheets[0];
+let firstCell = document.querySelector
+    (`.grid .cell[rid="${0}"][cid="${0}"]`);
+firstCell.click();
+
+// first me sheet change pe color change
+let firstSheet = document.querySelector(".sheet_sub .sheet")
+firstSheet.addEventListener("click", changeSheet);
+// db variable available
+// new sheets to be created
+let addBtn = document.querySelector(".add_Sheet")
+let sheetSubContainer = document.querySelector(".sheet_sub");
+
+addBtn.addEventListener("click", function () {
+    // ***************build sheet UI********************
+    let allSheets = document.querySelectorAll(".sheet_sub .sheet");
+    let lastSheet = allSheets[allSheets.length - 1];
+    let myId = lastSheet.getAttribute("myId");
+    let newMyId = Number(myId) + 1;
+    let sheetHtml = document.createElement("div");
+    sheetHtml.setAttribute("class", "sheet");
+    sheetHtml.setAttribute("myId", `${newMyId}`);
+    sheetHtml.innerText = `Sheet ${newMyId + 1}`;
+    sheetSubContainer.appendChild(sheetHtml);
+    // **********building 2d array db for that sheet
+    initDbtoSheet();
+    // current sheet put karne wala event listener
+    sheetHtml.addEventListener("click", changeSheet);
+})
+function changeSheet(e) {
+    let sheetHtml = e.currentTarget;
+    let allSheets = document.querySelectorAll(".sheet_sub .sheet");
+    for (let i = 0; i < allSheets.length; i++) {
+        allSheets[i].classList.remove("current_sheet")
+    }
+    // set as a current sheet on the UI
+    sheetHtml.classList.add("current_sheet");
+    let cSheetidx = sheetHtml.getAttribute("myId");
+    db = sheets[cSheetidx];
+    setUI(db);
+}
+function setUI(db){
+    for (let rid = 0; rid < 100; rid++) {
+        for (let cid = 0; cid < 26; cid++) {
+            let cellObj = db[rid][cid];
+            let uiCell = document.querySelector
+            (`.grid .cell[rid="${rid}"][cid="${cid}"]`);
+            uiCell.style.fontFamily = cellObj.fontFamily;
+            uiCell.style.fontSize = cellObj.fontSize + "px";
+            
+            uiCell.style.fontStyle = cellObj.isItalic == true ? "italic" : "normal";
+            uiCell.style.fontWeight = cellObj.isBold == true ? "bold" : "normal";
+            uiCell.style.textDecoration = cellObj.isUnderline == true ? "underline" : "none";
+            uiCell.style.textAlign = cellObj.cAlignment;
+            uiCell.textContent = cellObj.value;        
+        }
+        let firstCell = document.querySelector
+        (`.grid .cell[rid="${0}"][cid="${0}"]`);
+        firstCell.click();
     }
 }
-initUI();
-initDB();
+
 // console.log(db);
