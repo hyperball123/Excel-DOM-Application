@@ -39,25 +39,25 @@ function initUI() {
     }
 }
 let db = []
-function initDB(){
+function initDB() {
     for (let i = 0; i < 100; i++) {
         let rowArr = [];
         for (let j = 0; j < 26; j++) {
             let cellObj = {
                 fontFamily: "Courier New",
-                fontSize : "16",
-                isBold : false,
+                fontSize: "16",
+                isBold: false,
                 isItalic: false,
                 isUnderline: false,
                 cAlignment: "center",
-                formula:"",
-                value:"",
-                children:[],
+                formula: "",
+                value: "",
+                children: [],
             }
             rowArr.push(cellObj);
         }
         db.push(rowArr);
-        
+
     }
 }
 initUI();
